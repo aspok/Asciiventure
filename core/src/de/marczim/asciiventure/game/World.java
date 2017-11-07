@@ -42,7 +42,7 @@ public class World {
                 jsonRegion = jsonRegions.getChild(Integer.toString(id));
                 region.setName(jsonRegion.getString("name"));
 
-                region.setRooms(generateRoom(jsonRegion));
+                region.setRooms(generateRoom(jsonRegion, jsonRegion.getInt("id")));
 
                 resultArray.add(region);
             }
@@ -52,30 +52,38 @@ public class World {
         return resultArray;
     }
 
-    private Array<Room> generateRoom(JsonValue Region) {
+    private Array<Room> generateRoom(JsonValue Region, int ID) {
 
         Array<Room> resultRoom = new Array<Room>();
 
         int startRooms = 10;
         int maxRooms = 75;
-        int roomIndex = 0;
         int randomIndex;
         int roomNumber;
 
         Room room;
         JsonValue rooms = Region.getChild("rooms");
-
-        roomIndex = rooms.size;
+        Gdx.app.log(TAG, rooms.toString());
+        //Gdx.app.log(TAG+" ID", Integer.toString(ID));
 
         roomNumber = MathUtils.random(startRooms, maxRooms);
 
-        for (int i = 1; i <= roomNumber; i++) {
+        for (int i = 0; i <= roomNumber; i++) {
             randomIndex = MathUtils.random(0, 100);
+            Gdx.app.log(TAG, Integer.toString(randomIndex));
+            for (JsonValue jsonRoom : rooms) {
+                //Gdx.app.log(TAG+" FROM",Integer.toString(jsonRoom.child.getInt("from")));
+                //Gdx.app.log(TAG+" TO",Integer.toString(jsonRoom.child.getInt("to")));
+                if ((jsonRoom.child.getInt("from") <= randomIndex) && (jsonRoom.child.getInt("to") >= randomIndex)) {
+                    //Gdx.app.log(TAG, jsonRoom.child.getString("name"));
+                    switch (ID) {
 
+                    }
+                }
+            }
 
 
         }
-
         return resultRoom;
     }
 }
