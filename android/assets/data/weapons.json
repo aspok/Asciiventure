@@ -1,0 +1,28 @@
+{
+  tier_1: [
+    {
+      id_0: [
+        {
+          id: 0,
+          name: "Hands",
+          value: 0,
+          damage: 1,
+          lifespan: 0
+        }
+      ],
+      id_1: [
+        {
+          id: 1,
+          name: "Chub",
+          value: 15,
+          damage: 2,
+          lifespan: 100
+        }
+      ]
+    }
+  ],
+  adj: [
+    {
+    }
+  ]
+}

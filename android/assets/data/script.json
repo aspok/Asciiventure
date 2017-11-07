@@ -1,0 +1,6 @@
+{
+  init:[{
+    text:"Welcome young Adventurer",
+    action:"createChar"
+  }]
+}

@@ -1,0 +1,102 @@
+{
+  tier_1: [
+    {
+      id_1: [
+        {
+          id: 1,
+          name: "Apple",
+          type: "food",
+          value: 1,
+          action: [
+            {
+              id_1: [
+                {
+                  name: "heal",
+                  heal: 10
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      id_2: [
+        {
+          id: 2,
+          name: "Pear",
+          type: "food",
+          value: 1,
+          action: [
+            {
+              id_1: [
+                {
+                  name: "heal",
+                  heal: 10
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  tier_2: [
+    {
+      id_1: [
+        {
+          id: 1,
+          name: "Gold Ingot",
+          type: "ore",
+          value: 50,
+          action: [
+            {
+              id_0: [
+                {}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  tier_3: [
+    {
+      id_1: [
+        {
+          id: 1,
+          name: "Diamond",
+          type: "gem",
+          value: 1000,
+          action: [
+            {
+              id_0: [
+                {}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  adj: [
+    {
+      id_0: [
+        {
+          name: "",
+          multi: 1
+        }
+      ],
+      id_1: [
+        {
+          name: "super",
+          multi: 1.5
+        }
+      ],
+      id_2: [
+        {
+          name: "mega",
+          multi: 2
+        }
+      ]
+    }
+  ]
+}

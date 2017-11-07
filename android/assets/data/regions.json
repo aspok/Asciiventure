@@ -1,0 +1,60 @@
+{
+  regions: [
+    {
+      "1": [
+        {
+          name: "Forest",
+          rooms: [
+            {
+              "1": [
+                {
+                  name: "monster",
+                  from: 0,
+                  to: 39
+                }
+              ],
+              "2": [
+                {
+                  name: "clearing",
+                  from: 40,
+                  to: 79
+                }
+              ],
+              "3": [
+                {
+                  name: "shop",
+                  form: 80,
+                  to: 89
+                }
+              ],
+              "4": [
+                {
+                  name: "hut",
+                  from: 90,
+                  to: 94
+                }
+              ],
+              "5": [
+                {
+                  name: "crossing",
+                  from: 95,
+                  to: 100
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "2": [
+        {
+          name: "Mountain"
+        }
+      ],
+      "3": [
+        {
+          name: "Village"
+        }
+      ]
+    }
+  ]
+}
