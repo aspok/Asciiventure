@@ -7,6 +7,8 @@ import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Logger;
 
+import de.marczim.asciiventure.game.eventrooms.MonsterRoom;
+
 /**
  * Created by Marc Zimmermann on 04.11.2017.
  */
@@ -49,10 +51,11 @@ public class World {
 
         }
 
+        reader = null;
         return resultArray;
     }
 
-    private Array<Room> generateRoom(JsonValue Region, int ID) {
+    private Array<Room> generateRoom(JsonValue Region, int regionID) {
 
         Array<Room> resultRoom = new Array<Room>();
 
@@ -60,6 +63,7 @@ public class World {
         int maxRooms = 75;
         int randomIndex;
         int roomNumber;
+        int roomid;
 
         Room room;
         JsonValue rooms = Region.getChild("rooms");
@@ -75,9 +79,16 @@ public class World {
                 //Gdx.app.log(TAG+" FROM",Integer.toString(jsonRoom.child.getInt("from")));
                 //Gdx.app.log(TAG+" TO",Integer.toString(jsonRoom.child.getInt("to")));
                 if ((jsonRoom.child.getInt("from") <= randomIndex) && (jsonRoom.child.getInt("to") >= randomIndex)) {
+                    roomid = jsonRoom.child.getInt("id");
                     //Gdx.app.log(TAG, jsonRoom.child.getString("name"));
-                    switch (ID) {
-
+                    switch (regionID) {
+                        case 1:
+                            switch (roomid) {
+                                case 1:
+                                    room = new MonsterRoom(1);
+                                    break;
+                            }
+                            break;
                     }
                 }
             }

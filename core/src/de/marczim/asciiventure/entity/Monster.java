@@ -10,10 +10,13 @@ public class Monster {
 
     private Array<Item> drop;
     private String Name;
-    private int hp, strength,defense;
+    private int hp, exp;
+    private float strength, defense, speed;
+
 
     public Monster(String name) {
         Name = name;
+        drop = generateItem();
     }
 
     public Array<Item> getDrop() {
@@ -40,19 +43,40 @@ public class Monster {
         this.hp = hp;
     }
 
-    public int getStrength() {
+    public int getExp() {
+        return exp;
+    }
+
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
+
+    public float getStrength() {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    public void setStrength(float strength) {
         this.strength = strength;
     }
 
-    public int getDefense() {
+    public float getDefense() {
         return defense;
     }
 
-    public void setDefense(int defense) {
+    public void setDefense(float defense) {
         this.defense = defense;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
+    }
+
+    private Array<Item> generateItem() {
+
+        return null;
     }
 }

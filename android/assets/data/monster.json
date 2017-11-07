@@ -1,15 +1,16 @@
 {
-  monster: [
+  "monster": [
     {
-      goblin: [
+      "goblin": [
         {
-          name: "Goblin",
-          hp:15,
-          str:0.5f,
-          def:0.25f,
-          speed:0.3f,
-          loot:1,
-          ep:1
+          "name": "Goblin",
+          "hp": 15,
+          "str": 0.5f,
+          "def": 0.25f,
+          "speed": 0.3f,
+          "loot": 1,
+          "ep": 1,
+          "gold": 2
         }
       ]
     }

@@ -6,7 +6,17 @@ package de.marczim.asciiventure.game;
 
 public class Room {
 
-    public Room() {
+    int baselevel;
+
+    public Room(int BaseLevel) {
+        this.baselevel = BaseLevel;
     }
 
+    public int getBaselevel() {
+        return baselevel;
+    }
+
+    public void setBaselevel(int baseLevel) {
+        this.baselevel = baseLevel;
+    }
 }
