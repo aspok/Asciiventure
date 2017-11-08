@@ -1,66 +1,62 @@
 {
-  "regions": [
-    {
-      "1": [
+  "regions": [{
+    "1": [{
+      "id": "1",
+      "name": "Forest",
+      "rooms": [
         {
-          "id": "1",
-          "name": "Forest",
-          "rooms": [
+          "1": [
             {
-              "1": [
-                {
-                  "id": 1,
-                  "name": "monster",
-                  "from": 0,
-                  "to": 59
-                }
-              ],
-              "2": [
-                {
-                  "id": 2,
-                  "name": "clearing",
-                  "from": 60,
-                  "to": 84
-                }
-              ],
-              "3": [
-                {
-                  "id": 3,
-                  "name": "shop",
-                  "from": 85,
-                  "to": 91
-                }
-              ],
-              "4": [
-                {
-                  "id": 4,
-                  "name": "hut",
-                  "from": 92,
-                  "to": 98
-                }
-              ],
-              "5": [
-                {
-                  "id": 5,
-                  "name": "crossing",
-                  "from": 99,
-                  "to": 100
-                }
-              ]
+              "id": 1,
+              "name": "monster",
+              "from": 0,
+              "to": 59
+            }
+          ],
+          "2": [
+            {
+              "id": 2,
+              "name": "clearing",
+              "from": 60,
+              "to": 84
+            }
+          ],
+          "3": [
+            {
+              "id": 3,
+              "name": "shop",
+              "from": 85,
+              "to": 91
+            }
+          ],
+          "4": [
+            {
+              "id": 4,
+              "name": "hut",
+              "from": 92,
+              "to": 98
+            }
+          ],
+          "5": [
+            {
+              "id": 5,
+              "name": "crossing",
+              "from": 99,
+              "to": 100
             }
           ]
         }
-      ],
-      "2": [
-        {
-          "name": "Mountain"
-        }
-      ],
-      "3": [
-        {
-          "name": "Village"
-        }
       ]
-    }
-  ]
+    }],
+    "2": [
+      {
+        "name": "Mountain"
+      }
+    ],
+    "3": [
+      {
+        "name": "Village"
+      }
+    ]
+  }]
 }

@@ -5,9 +5,9 @@
         {
           "name": "Goblin",
           "hp": 15,
-          "str": 0.5f,
-          "def": 0.25f,
-          "speed": 0.3f,
+          "str": 0.5,
+          "def": 0.25,
+          "speed": 0.3,
           "loot": 1,
           "ep": 1,
           "gold": 2

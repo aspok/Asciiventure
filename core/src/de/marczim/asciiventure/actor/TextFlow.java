@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class TextFlow extends Actor {
 
-    final private String TAG="TextFlow";
+    final private String TAG = "TextFlow";
 
     private String text, flowtext;
     private BitmapFont font;
@@ -39,12 +39,16 @@ public class TextFlow extends Actor {
         maxLetters = this.text.length();
     }
 
+    public void setText(String Text) {
+        this.text = Text;
+    }
+
     @Override
     public void draw(Batch batch, float parentAlpha) {
         if (!isDone) {
 
             aChar = getFlowText(this.text, currentLetters);
-            flowtext+=(Character.toString(aChar));
+            flowtext += (Character.toString(aChar));
             currentLetters++;
             if (currentLetters > maxLetters) {
                 isDone = true;
@@ -59,7 +63,7 @@ public class TextFlow extends Actor {
             flowtext = this.text;
         }
 
-        font.draw(batch, flowtext, this.getX(), this.getY()+(font.getCapHeight()-4)/2+getHeight()/2);
+        font.draw(batch, flowtext, this.getX(), this.getY() + (font.getCapHeight() - 4) / 2 + getHeight() / 2);
     }
 
     @Override

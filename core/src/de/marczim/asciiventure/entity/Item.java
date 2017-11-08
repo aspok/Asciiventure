@@ -10,14 +10,18 @@ import com.badlogic.gdx.utils.JsonValue;
 
 public class Item {
 
-    private String name;
-    private int value;
+    private final String TAG = "ITEM";
 
-    public Item() {
+    private String name;
+    private int value, monsterlvl;
+
+    public Item(int MonsterLVL) {
+        this.monsterlvl = MonsterLVL;
         init();
     }
 
-    public Item(String Name, int Value ) {
+    public Item(String Name, int Value, int MonsterLVL) {
+        this.monsterlvl = MonsterLVL;
         this.name = Name;
         this.value = Value;
 
@@ -39,14 +43,22 @@ public class Item {
         this.name = name;
     }
 
-    private void init(){
+    private void init() {
 
+        /*
         JsonReader reader = new JsonReader();
         JsonValue itemBase = reader.parse(Gdx.files.internal("data/items.json"));
-
-
-
         reader = null;
+        */
+
+        debugItem();
+
+    }
+
+    private void debugItem() {
+
+        this.name = "Debug Item";
+        this.value = 1;
 
     }
 }

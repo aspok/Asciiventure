@@ -13,22 +13,12 @@ import de.marczim.asciiventure.game.Room;
 
 public class MonsterRoom extends Room {
 
-    int regionid = 0;
     private Monster monster;
 
 
     public MonsterRoom(int BaseLevel) {
         super(BaseLevel);
-        monster = generateMonster();
-    }
-
-
-    private Monster generateMonster() {
-
-        JsonReader reader = new JsonReader();
-        JsonValue MonsterBase = reader.parse(Gdx.files.internal("data/monster.json"));
-
-        return null;
+        monster = new Monster(this.getBaselevel());
     }
 
 
