@@ -80,6 +80,7 @@ public class GameScreen implements Screen {
         regionPane.setScrollingDisabled(true, false);
 
 
+
         tblSubmenu.defaults().pad(5f).width(((game.viewport.getWorldWidth() / 2) - 10f)).height(150f);
         tblSubmenu.add(txtbtnNext);
         tblSubmenu.add(txtbtnOption);
@@ -142,6 +143,7 @@ public class GameScreen implements Screen {
                 if (table.getCell(txtFlow) != null) {
                     table.getCell(txtFlow).setActor(regionPane);
                 }
+                gameState = 1;
                 break;
             case 1:
             case 2:
