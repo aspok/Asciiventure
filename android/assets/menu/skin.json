@@ -9,6 +9,9 @@ com.badlogic.gdx.graphics.g2d.BitmapFont: {
 	font_32: {
 		file: font_32.fnt
 	}
+	font_42: {
+		file: font_42.fnt
+	}
 }
 com.badlogic.gdx.graphics.Color: {
 	black: {
@@ -26,12 +29,8 @@ com.badlogic.gdx.graphics.Color: {
 }
 com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 	default: {
-		font: font_24
+		font: font_42
 		fontColor: black
-	},
-	big:{
-		font:font_32,
-		fontColor:black
 	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle: {
@@ -42,7 +41,7 @@ com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle: {
 }
 com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
 	default: {
-		font: font_32
+		font: font_42
 		fontColor: white
 		up: btn
 		pressedOffsetX: 1

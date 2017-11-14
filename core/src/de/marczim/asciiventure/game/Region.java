@@ -6,6 +6,10 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 
+import java.util.UUID;
+
+import javax.tools.JavaCompiler;
+
 import de.marczim.asciiventure.game.eventrooms.MonsterRoom;
 
 /**
@@ -20,12 +24,14 @@ public class Region {
     private Array<Room> rooms;
     private int baseLevel, regionID;
     private String name;
+    private UUID uuid;
 
     public Region(String Name, int RegionID, int BaseLevel) {
         this.name = Name;
         this.regionID = RegionID;
         this.baseLevel = BaseLevel;
         this.rooms = generateRoom(RegionID);
+        this.uuid = java.util.UUID.randomUUID();
     }
 
 
@@ -69,26 +75,34 @@ public class Region {
         int maxRooms = 23;
         int randomIndex;
         int roomNumber;
-        int roomid;
+        int roomID;
 
         Room room;
 
         JsonReader reader = new JsonReader();
+        //Root-Tree von Region.json
         JsonValue base = reader.parse(Gdx.files.internal("data/regions.json"));
+        //Region mit der RegionID
         JsonValue region = base.child.child.get(Integer.toString(regionID));
+        //Aus der RegionID die Rooms
         JsonValue rooms = region.child().get("rooms");
 
+        //Zufallsnummer der Räume
         roomNumber = MathUtils.random(minRooms, maxRooms);
 
         for (int i = 0; i <= roomNumber; i++) {
             room = null;
+            //Prozentsatz der Räume
             randomIndex = MathUtils.random(0, 100);
             for (JsonValue jsonRoom : rooms) {
                 if ((jsonRoom.child.child.getInt("from") <= randomIndex) && (jsonRoom.child.child.getInt("to") >= randomIndex)) {
-                    roomid = jsonRoom.child.child.getInt("id");
+                    //RoomID
+                    roomID = jsonRoom.child.child.getInt("id");
                     switch (regionID) {
+                        //Wald Region
                         case 1:
-                            switch (roomid) {
+                            switch (roomID) {
+                                //Monster Room
                                 case 1:
                                     room = new MonsterRoom(1);
                                     break;
@@ -102,7 +116,7 @@ public class Region {
 
         }
 
-        Gdx.app.log(TAG,resultRoom.toString());
+        Gdx.app.log(TAG, resultRoom.toString());
         reader = null;
         return resultRoom;
     }

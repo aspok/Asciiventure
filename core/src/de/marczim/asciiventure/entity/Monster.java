@@ -99,6 +99,7 @@ public class Monster {
     private void init(int Roomlevel) {
 
         JsonReader reader = new JsonReader();
+        //Root aus Monster.json
         JsonValue monsterBase = reader.parse(Gdx.files.internal("data/monster.json"));
 
         int monsterIndex = monsterBase.child.size - 1;

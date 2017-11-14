@@ -8,7 +8,7 @@ import de.marczim.asciiventure.entity.Monster;
 import de.marczim.asciiventure.game.Room;
 
 /**
- * Created by ITAD4-TN09 on 07.11.2017.
+ * Created by Marc Zimmermann on 07.11.2017.
  */
 
 public class MonsterRoom extends Room {
@@ -18,6 +18,7 @@ public class MonsterRoom extends Room {
 
     public MonsterRoom(int BaseLevel) {
         super(BaseLevel);
+        //Erstelle ein neues Monster
         monster = new Monster(this.getBaselevel());
     }
 

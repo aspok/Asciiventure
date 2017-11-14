@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Cell;
+import com.badlogic.gdx.scenes.scene2d.ui.Container;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -43,6 +44,7 @@ public class GameScreen implements Screen {
 
     private World world;
     private Player player;
+    private Container container;
 
     public GameScreen(final Asciiventure Game) {
         this.game = Game;
@@ -60,6 +62,8 @@ public class GameScreen implements Screen {
         table = new Table(skin);
         tblSubmenu = new Table(skin);
         tblRegionSelect = new Table(skin);
+
+        container = new Container();
 
         font = new BitmapFont(Gdx.files.internal("font/font_32.fnt"));
         bfd = font.getData();
@@ -79,7 +83,17 @@ public class GameScreen implements Screen {
         regionPane.setFlickScroll(true);
         regionPane.setScrollingDisabled(true, false);
 
+        table.setFillParent(true);
+        table.defaults().width(game.viewport.getWorldWidth() - 10.0f).pad(0.0f).prefHeight(game.viewport.getWorldHeight() / 3);
 
+        table.add();
+        table.row();
+        table.add(container);
+        table.row();
+        table.add(scrollPane).expand();
+        table.row();
+
+        tblRegionSelect.defaults().width((game.viewport.getWorldWidth() / 5) - 10f).height(35f).padTop(10f).padBottom(10f);
 
         tblSubmenu.defaults().pad(5f).width(((game.viewport.getWorldWidth() / 2) - 10f)).height(150f);
         tblSubmenu.add(txtbtnNext);
@@ -87,16 +101,6 @@ public class GameScreen implements Screen {
         tblSubmenu.row();
         tblSubmenu.add(txtbtnInfo).row();
 
-
-        table.setFillParent(true);
-        table.defaults().width(game.viewport.getWorldWidth() - 10.0f).pad(0.0f).prefHeight(game.viewport.getWorldHeight() / 3);
-
-        table.add();
-        table.row();
-        table.add(txtFlow);
-        table.row();
-        table.add(scrollPane).expand();
-        table.row();
 
         stage.addActor(table);
 
@@ -130,19 +134,20 @@ public class GameScreen implements Screen {
 
         switch (gameState) {
             case 0:
-                txtFlow.clear();
-
+                tblRegionSelect.clearChildren();
                 for (Region r : world.getRegions()) {
                     tblRegionSelect.add(r.getName());
-                    tblRegionSelect.add("Rooms:");
+                    tblRegionSelect.add(" Rooms: ");
                     tblRegionSelect.add(Integer.toString(r.getRooms().size));
-                    tblRegionSelect.add("Level:");
+                    tblRegionSelect.add(" Level: ");
                     tblRegionSelect.add(Integer.toString(r.getBaseLevel()));
                     tblRegionSelect.row();
                 }
-                if (table.getCell(txtFlow) != null) {
-                    table.getCell(txtFlow).setActor(regionPane);
+
+                if (container.hasChildren()) {
+                    container.clearChildren();
                 }
+                container.setActor(regionPane);
                 gameState = 1;
                 break;
             case 1:

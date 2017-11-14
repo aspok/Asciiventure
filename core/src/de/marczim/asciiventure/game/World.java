@@ -48,7 +48,7 @@ public class World {
 
                 jsonRegion = jsonRegions.getChild(Integer.toString(id));
 
-
+                //Neue Region erstellen
                 region = new Region(jsonRegion.getString("name"), jsonRegion.getInt("id"), 1);
 
 
